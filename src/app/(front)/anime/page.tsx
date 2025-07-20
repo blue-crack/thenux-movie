@@ -6,7 +6,7 @@ import { RequestType, type ShowRequest } from '@/enums/request-type';
 import { getRandomShow } from '@/lib/utils';
 import MovieService from '@/services/MovieService';
 import { type CategorizedShows, MediaType, type Show } from '@/types';
-
+import MovieAssistant from '../../components/MovieAssistant';
 export const revalidate = 3600;
 
 export default async function AnimePage() {
@@ -76,6 +76,7 @@ export default async function AnimePage() {
       <h1 className="hidden">{h1}</h1>
       <Hero randomShow={randomShow} />
       <ShowsContainer shows={allShows} />
+        <MovieAssistant /> {/* Add the AI Assistant here */}
     </>
   );
 }
