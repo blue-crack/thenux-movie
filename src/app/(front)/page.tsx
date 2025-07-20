@@ -23,7 +23,7 @@ export default function Index() {
             variant="secondary"
           >
             <Icons.instagram className="mr-2 h-3.5 w-3.5" />
-            Follow along on Insta
+            Follow along on Instagram
           </Badge>
           <span className="sr-only">Insta</span>
         </Link>
