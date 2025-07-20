@@ -22,10 +22,10 @@ export default function Index() {
             className="rounded-md px-3.5 py-1.5"
             variant="secondary"
           >
-            <Icons.twitter className="mr-2 h-3.5 w-3.5" />
-            Follow along on Twitter
+            <Icons.instagram className="mr-2 h-3.5 w-3.5" />
+            Follow along on Insta
           </Badge>
-          <span className="sr-only">Twitter</span>
+          <span className="sr-only">Insta</span>
         </Link>
         <h1 className="max-w-screen-lg text-center font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
           {siteConfig.name} - {siteConfig.slogan}
