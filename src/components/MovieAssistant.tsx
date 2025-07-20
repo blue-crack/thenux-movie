@@ -1,5 +1,7 @@
 // src/components/MovieAssistant.tsx
 
+"use client"; // Add this line to mark the component as a Client Component
+
 import React, { useState } from 'react';
 
 const MovieAssistant: React.FC = () => {
@@ -40,22 +42,23 @@ const MovieAssistant: React.FC = () => {
 
   return (
     <div>
-      <h2>Movie Assistant</h2>
-      <form onSubmit={handleSubmit}>
+      <h2 className="text-2xl font-semibold mb-2">Movie Assistant</h2>
+      <form onSubmit={handleSubmit} className="mb-4">
         <input
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Ask me about movies..."
           required
+          className="border p-2 rounded w-full"
         />
-        <button type="submit" disabled={loading}>
+        <button type="submit" disabled={loading} className="mt-2 bg-blue-500 text-white p-2 rounded">
           {loading ? 'Loading...' : 'Ask'}
         </button>
       </form>
       {response && (
         <div>
-          <h3>Response:</h3>
+          <h3 className="text-lg font-semibold">Response:</h3>
           <p>{response}</p>
         </div>
       )}
@@ -64,3 +67,4 @@ const MovieAssistant: React.FC = () => {
 };
 
 export default MovieAssistant;
+
