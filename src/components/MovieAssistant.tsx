@@ -10,8 +10,7 @@ const MovieAssistant: React.FC = () => {
   const [loading, setLoading] = useState(false);
 
   const callAIModel = async (input: string, model: string) => {
-    // Add the prompt to the input
-    const prompt = `You are a smart Movie Assistant created by @thenux-ai. If a user sends a movie link (like filmslk.com), help by showing movie title, description, and video links. Otherwise, answer normally as an AI movie expert. User input: ${input}`;
+    const prompt = `You are a smart and friendly  Movie Assistant created by @thenux-ai. If a user sends a movie link (like filmslk.com), help by showing movie title, description, and video links. Otherwise, answer normally as an AI movie expert. User input: ${input}`;
     
     const apiUrl = `https://thenuxai-gpt.vercel.app/api/gpt?q=${encodeURIComponent(prompt)}&model=${model}`;
     
@@ -32,7 +31,7 @@ const MovieAssistant: React.FC = () => {
       setResponse(data.response);
     } catch (error) {
       console.error("Error calling AI model:", error);
-      setResponse("Sorry, I couldn't process your request.");
+      setResponse("Sorry, I couldn't process your request. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -44,8 +43,8 @@ const MovieAssistant: React.FC = () => {
   };
 
   return (
-    <div className="bg-white shadow-md rounded-lg p-6">
-      <h2 className="text-2xl font-semibold mb-2">Movie Assistant</h2>
+    <div className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-6">
+      <h2 className="text-2xl font-semibold mb-2 text-gray-800 dark:text-white">Movie Assistant</h2>
       <form onSubmit={handleSubmit} className="mb-4">
         <input
           type="text"
@@ -53,16 +52,16 @@ const MovieAssistant: React.FC = () => {
           onChange={(e) => setInput(e.target.value)}
           placeholder="Ask me about movies or share a movie link..."
           required
-          className="border p-2 rounded w-full"
+          className="border dark:border-gray-600 p-2 rounded w-full dark:bg-gray-700 dark:text-white"
         />
-        <button type="submit" disabled={loading} className="mt-2 bg-blue-500 text-white p-2 rounded">
+        <button type="submit" disabled={loading} className="mt-2 bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition duration-200">
           {loading ? 'Loading...' : 'Ask'}
         </button>
       </form>
       {response && (
-        <div className="mt-4 p-4 border rounded bg-gray-100">
-          <h3 className="text-lg font-semibold">Response:</h3>
-          <p>{response}</p>
+        <div className="mt-4 p-4 border rounded bg-gray-100 dark:bg-gray-700">
+          <h3 className="text-lg font-semibold text-gray-800 dark:text-white">Response:</h3>
+          <p className="text-gray-700 dark:text-gray-300">{response}</p>
         </div>
       )}
     </div>
