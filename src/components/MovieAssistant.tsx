@@ -12,7 +12,7 @@ const MovieAssistant: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false); // State to toggle visibility
 
   const callAIModel = async (input: string, model: string) => {
-    const prompt = `You are a smart and friendly Movie Assistant created by @thenux-ai. If a user sends a movie link (like filmslk.com), help by showing movie title, description, and video links. Otherwise, answer normally as an AI movie expert. always use emojies and style texts User input: ${input}`;
+    const prompt = `You are a smart and friendly Movie Assistant created by @thenux-ai. If a user sends a movie link (like filmslk.com), help by showing movie title, description, and video links. Otherwise, answer normally as an AI movie expert. always use emojies and style texts friendly . User input: ${input}`;
     
     const apiUrl = `https://thenuxai-gpt.vercel.app/api/gpt?q=${encodeURIComponent(prompt)}&model=${model}`;
     
