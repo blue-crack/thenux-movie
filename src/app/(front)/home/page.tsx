@@ -1,3 +1,5 @@
+// src/app/(front)/home/page.tsx
+
 import Hero from '@/components/hero';
 import ShowsContainer from '@/components/shows-container';
 import { MediaType, type Show } from '@/types';
@@ -6,6 +8,7 @@ import { RequestType, type ShowRequest } from '@/enums/request-type';
 import MovieService from '@/services/MovieService';
 import { Genre } from '@/enums/genre';
 import { getRandomShow } from '@/lib/utils';
+import MovieAssistant from '../../components/MovieAssistant';
 
 export const revalidate = 3600;
 
@@ -77,13 +80,17 @@ export default async function Home() {
       visible: true,
     },
   ];
+  
   const allShows = await MovieService.getShows(requests);
   const randomShow: Show | null = getRandomShow(allShows);
+  
   return (
     <>
       <h1 className="hidden">{h1}</h1>
       <Hero randomShow={randomShow} />
       <ShowsContainer shows={allShows} />
+      <MovieAssistant /> {/* Add the AI Assistant here */}
     </>
   );
 }
+
